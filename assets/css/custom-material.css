@@ -1,0 +1,83 @@
+body{
+	background-color: #eee;
+}
+.banner{
+	height: 250px;
+	width: 100%;
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin:0;
+	padding:0;
+}
+.main-content{
+	margin-top: 30px
+}
+.input-field-classic label{
+	color: #666;
+}
+.input-field-classic input{
+	border: 1px solid #ccc; 
+	height: 2rem;
+}
+.input-field-classic input:focus{
+	border: 1px solid #42A5F5 !important;
+	-webkit-box-shadow: 0 0px 0 0 #42A5F5 !important;
+	box-shadow: 0 0px 0 0 #42A5F5 !important;
+
+}
+.card.no-padding .card-content{
+	padding: 20px 0 !important; 
+}
+select.browser-default{
+	border:1px solid #ccc;
+}
+.pointer{
+	cursor: pointer;
+}
+.linkhover:hover{
+	text-decoration: underline;
+}
+.hide-elem{
+	display: none;
+}
+
+
+#toast-container{
+	left: 7%;
+	right: auto;
+	top: 2%;
+	z-index: 1000
+}@media only screen and (max-width: 992px){
+	#toast-container{
+		left: 3% !important;
+		right: 3% !important;
+		margin: auto;
+		width:94% !important;
+		min-width: 94% ;
+	}
+}
+.red-box-dot,
+.red-box-dot:hover,
+.red-box-dot:focus{
+	background: #fff;
+	color:#dd4f39;
+	border: 1px solid #dd4f39;
+	outline: 1px solid #fff;
+}
+.chip{
+	transition: 0.2s ease-out;
+	background: #fff !important;
+	color: #e53935 ;
+
+	    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+	    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+.chip.edit:hover{
+	background: #e53935 !important;
+	color: #fff;
+}
+i.fa-small {
+	font-size: 0.9em ;
+}
