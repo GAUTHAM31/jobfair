@@ -170,10 +170,11 @@ class Public_model extends CI_Model
 	           
 	            $i=0;
 	            $failed=[];
+	            $status=[];
 	            foreach ($options as $key => $value) {
 	            	if($this->check_job_is_open($value))
 	            	{
-	            		if($this->max_seat_job($value)>$this->max_seat_options($value))
+	            		if($this->max_seat_job($value)>($max_seats=$this->max_seat_options($value)) )
 	            		{
 	            			if(!$this->already_exist($value,$id))
 	            			{
@@ -186,6 +187,7 @@ class Public_model extends CI_Model
 							'browser'=>$agent,
 							'platform'=>$this->agent->platform()
 							]);
+	            				$this->db->update('jobs',['seats'=>$max_seats+1],['id'=>$value]);
 	            			}
 	            			else{
 	            				$status[$i]='applyed already';
@@ -204,7 +206,7 @@ class Public_model extends CI_Model
 	            }
 
 
-		if ($this->db->trans_status() === FALSE)
+		if ($this->db->trans_status() === FALSE || (sizeof($options)<=sizeof($status) ) )
 		{
 		    $this->db->trans_rollback();
 		    return false;

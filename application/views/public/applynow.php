@@ -1,3 +1,7 @@
+ <?php 
+if(!isset($base_amount))
+  $base_amount=300;
+ ?>
  <div class="row">
     <?=form_open('welcome/applynow')?>
     <span class="card-title"> Personal Informations</span>
@@ -48,10 +52,13 @@
             <option value="0"  selected>Choose your option</option>
               <?php 
               foreach ($options as $key => $value) {
-                ?>
+          if($value['maxseats']-$value['seats']>0){
 
+                ?>
+          
               <option value="<?=$value['id']?>"><?=$value['title']?></option>
                 <?php 
+              }//>0 
 
               }
               ?> 
@@ -66,6 +73,15 @@
          <div id="deletemoreoptions" class="pointer linkhover" style="padding-left: 10px;display: inline-block;">Delete Last Option</div>
        </div>
      </div>
+     <div class="center-align">
+       
+          <div class="chip teal white-text z-depth-3">
+          Total Amount to pay :&nbsp;&nbsp;
+          <i class="fa fa-rupee"> </i>&nbsp;&nbsp;<span id="payment_amt"><?=$base_amount?></span> *
+          </div>
+     
+     </div>
+        
      <input type="hidden" value="applynow" name="apply">
       <div class="card-action row center-align"> 
           <button onclick="return confirm_application()" class="btn red darken  waves-effect waves-light" id="apply" >APPLY</button>
@@ -91,6 +107,7 @@ var maxoptions=<?=$maxoptions?>;
           {
             $('#options'+(noofclicks-1)).hide(); 
             $('#optionid'+(noofclicks-1)).val(0).change(); 
+          $('#payment_amt').html(parseFloat($('#payment_amt').html())-100);
            
 
             noofclicks--;
@@ -102,6 +119,7 @@ var maxoptions=<?=$maxoptions?>;
             $('#options'+(noofclicks)).show();
             if(noofclicks!=maxoptions+1)
             noofclicks++;
+          $('#payment_amt').html(parseFloat($('#payment_amt').html())+100);
           }
           console.log(noofclicks);
         });
@@ -121,4 +139,27 @@ var maxoptions=<?=$maxoptions?>;
 
     });
     </script>
-        
+  </div>
+<div class="grey-text  col s12 m8 l6 offset-s0 offset-m2 offset-l3 ">
+      <table class="  centered responsive-table">
+            <thead>
+              <tr>
+                  <th>Company Name</th>
+                  <th>Seats Available</th> 
+              </tr>
+            </thead>
+
+            <tbody>
+<?php 
+
+  foreach ($options as $key => $value) {
+?>              <tr>
+                <td><?=$value['title']?></td>
+                <td><?=$value['maxseats']-$value['seats']?></td> 
+              </tr> 
+<?php 
+}
+?>
+            </tbody>
+          </table>
+  </div>

@@ -1,11 +1,12 @@
 <?php
-if(isset($_GET['msg']) && strlen($_GET['msg'])>1 )
+if(isset($_GET['msg']) && strlen($_GET['msg'])>1  && (!isset($_GET['longmsg'])))
 {
+	 
 	?>
 
 <script>
 	$(document).ready(function(){
-		Materialize.toast("<?=$this->input->get('msg')?>", 5000) ;
+		Materialize.toast("<?=$this->input->get('msg')?>",5000) ;
 	});
 </script>
 	<?php
@@ -29,7 +30,17 @@ if(isset($_GET['msg']) && strlen($_GET['msg'])>1 )
 	  </ul>
 	</div>
 </nav>
-        
+<?php 
+if(isset($_GET['longmsg'])){
+?>  
+<div class="row">
+	<div class="card-panel grey darken-4 white-text col s12 m8 offset-m2">
+		<?=$this->input->get('msg')?>
+	</div>
+</div>
+<?php
+}
+?>
 <div class="row main-content">
 	<div class="col s12 m10 l8 offset-s0 offset-m1 offset-l2 ">
 	  <div class="card z-depth-4 jf-card"> 
@@ -39,5 +50,5 @@ if(isset($_GET['msg']) && strlen($_GET['msg'])>1 )
 	    	?>
 	    </div> 
 	  </div>
-	</div>
+	</div> 
 </div> 

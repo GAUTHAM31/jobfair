@@ -69,7 +69,7 @@ select.browser-default{
 	border: 1px solid #dd4f39;
 	outline: 1px solid #fff;
 }
-.chip{
+.chip.edit{
 	transition: 0.2s ease-out;
 	background: #fff !important;
 	color: #e53935 ;

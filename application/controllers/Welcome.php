@@ -70,6 +70,7 @@ class Welcome extends CI_Controller {
             	$failstatus="";
             	 if(is_array($failed))
             	 {
+	            	 
 
 		        	foreach ($failed['status'] as $key => $value) {
 		        		if(($jobtitle=$this->public_model->jobtitle($failed['failed'][$key])) !=false)
@@ -80,12 +81,12 @@ class Welcome extends CI_Controller {
             	 }
             	 if(strlen($failstatus)>1)
             	 {
-	            	 $failstatus="Cant Register for some of the seats :  ".$failstatus;            	 	
+	            	 $failstatus="Cant Register for some of the seats :  ".$failstatus."&longmsg=true";            	 	
             	 }
             	redirect('welcome/login?msg=Application Submitted .Login to check status. Check Your email . '.$failstatus,'refresh');
             	return false;
             }
-            redirect('welcome/login?msg=Application Submission Error . Try Again','refresh');
+            redirect('applynow?msg=Application Submission Error . Try Again','refresh');
             return false;
 
 	}
