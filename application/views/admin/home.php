@@ -12,7 +12,7 @@
 	      	<input type="hidden" name="addcompany" value="true">
 			<div class="row">
 			 	<div class="input-field  col s12 m8 offset-m2"> 
-					<input id="name" name="name" type="text" class="validate">
+					<input id="name" name="name" type="text" class="validate" autofocus>
 					<label for="name">name of Company</label> 
 			 	</div>
 			 </div> 

@@ -38,7 +38,7 @@ class Welcome extends CI_Controller {
       	 $this->load->library('form_validation');
 	if($this->input->post('apply'))
 	{
- 		$input=$this->input->post();
+ 	$input=$this->input->post();
             $selectedoptions=[];
             $i=0;
            
@@ -58,10 +58,34 @@ class Welcome extends CI_Controller {
             	'password'=>$input['password']
 
 	            ];
-            if($this->public_model->applynow($personalinfo,$selectedoptions))
+	if($this->public_model->userexist($personalinfo['email']))
+	{
+		 redirect('welcome/login?msg=User Already exist .Login To Account','refresh');
+           		 return false;
+
+	}
+            if(($failed=$this->public_model->applynow($personalinfo,$selectedoptions))!=false)
             {
-            	redirect('welcome/login?msg=Application Submitted .Login to check status. Check Your email . ','refresh');
+
+            	$failstatus="";
+            	 if(is_array($failed))
+            	 {
+
+		        	foreach ($failed['status'] as $key => $value) {
+		        		if(($jobtitle=$this->public_model->jobtitle($failed['failed'][$key])) !=false)
+		        		{
+		            		$failstatus.=" ".$jobtitle." [".$value."] ,";			
+		        		}
+		        	   }
+            	 }
+            	 if(strlen($failstatus)>1)
+            	 {
+	            	 $failstatus="Cant Register for some of the seats :  ".$failstatus;            	 	
+            	 }
+            	redirect('welcome/login?msg=Application Submitted .Login to check status. Check Your email . '.$failstatus,'refresh');
+            	return false;
             }
+            redirect('welcome/login?msg=Application Submission Error . Try Again','refresh');
             return false;
 
 	}
