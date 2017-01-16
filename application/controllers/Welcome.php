@@ -11,6 +11,12 @@ class Welcome extends CI_Controller {
 			show_error('Registration Cloed!', 401,'Sorry !');
 			die;
 		}
+		$this->load->library('session'); 
+		if(  $this->session->userdata('admin') || $this->session->userdata('id')  )
+		{
+			redirect("adminlogin/logout?msg=login again");
+			die;
+		}
 	}
  	public function material($content=NULL,$data="")
  	{
@@ -131,7 +137,7 @@ class Welcome extends CI_Controller {
 		$this->session->sess_destroy();
 
 		$msg=$this->input->get('msg');
-		$rdir=($this->input->get('rdir'))?$this->input->get('rdir'):'welcome/login';
+		$rdir=($this->input->get('rdir'))?$this->input->get('rdir'):'login';
 		redirect($rdir."?msg=".$msg,"refresh"); 
 	}
 	

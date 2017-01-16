@@ -89,7 +89,7 @@ if(!isset($base_amount))
     </form>
   </div>
 
-  
+  <span class="red-text">* if the seats are filled as you fill the form it wont be considered .Before payment login and check actual amount</span>
   <script>   
  function confirm_application(){
    if(confirm("Confirm Action?"))
