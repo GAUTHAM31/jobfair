@@ -15,7 +15,7 @@ if($this->input->get('msg')!=false)
 <!-- navigation-->
 <nav class="transparent z-depth-0"> 
 	<div class="nav-wrapper">
-	  <a href="#!" class="brand-logo center">Job Fair</a>
+	  <a href="<?=base_url()?>" class="brand-logo center">Job Fair</a>
 	  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons fa fa-fw fa-bars "></i></a>
 	  <ul class="right hide-on-med-and-down">
 	    <li><a href="<?=base_url()?>user">Home</a></li> 

@@ -45,10 +45,16 @@
         <div class="col s10">
             <label class="col s2 black-text left-align " style="margin-top: 1em">#<?=$i?></label>
             <select name="selectedoptions[]" id="optionid<?=$i?>" class="browser-default col s10" >
-              <option value="0"  selected>Choose your option</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
+            <option value="0"  selected>Choose your option</option>
+              <?php 
+              foreach ($options as $key => $value) {
+                ?>
+
+              <option value="<?=$value['id']?>"><?=$value['title']?></option>
+                <?php 
+
+              }
+              ?> 
             </select>
         </div>
          

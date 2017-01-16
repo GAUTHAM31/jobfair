@@ -1,7 +1,7 @@
 <div class="card-title">Selected options</div>
 <?php 
 $i=1;
-if(isset($options))
+if(isset($options) && is_array($options))
 {
 
 foreach ($options as $key => $value) {
@@ -14,7 +14,11 @@ foreach ($options as $key => $value) {
 
 <?php
   }
-}?>
+}
+else{
+	echo "No data Found .Contact Admin immediately ";
+}
+?>
 <div class="card-action center-align">
 	<a href="<?=base_url()?>user/printout" class="btn btn red darken-1 "> <i class="fa-small fa fa-print fa-x1 fa-fw">	</i> Print Application</a> 
 </div>

@@ -60,6 +60,7 @@ class Public_model extends CI_Model
 
 	            $id = $this->db->insert_id();
 	            $i=0;
+	            $batch=[];
 	            foreach ($options as $key => $value) {
 	            	$batch[$i++]=[
 		            	'uid'=>$id,
@@ -96,5 +97,9 @@ class Public_model extends CI_Model
 			return $q->result_array()[0];
 		}
 			return false;
+	}
+	public function getalljobs($orderby='id')
+	{
+		return $this->db->order_by($orderby)->get('jobs')->result_array();
 	}
 }

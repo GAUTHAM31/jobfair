@@ -9,6 +9,14 @@ class Welcome extends CI_Controller {
 			$this->load->view('bootstrap/material-blog-theme',['content'=>$content,'data'=>$data]);
 		$this->load->view('bootstrap/material-end');
  	}
+
+	 
+	public function instructions()
+	{
+		$this->load->view('bootstrap/material-start');
+		$this->load->view("public/home");
+		$this->load->view('bootstrap/material-end');
+	} 
 	public function index()
 	{
 		$this->material("public/instructions");
@@ -17,7 +25,7 @@ class Welcome extends CI_Controller {
 	{
 		
 	$this->load->helper('form');
-       $this->load->library('form_validation');
+      	 $this->load->library('form_validation');
 	if($this->input->post('apply'))
 	{
  		$input=$this->input->post();
@@ -48,9 +56,9 @@ class Welcome extends CI_Controller {
             return false;
 
 	}
-		
-
-		$this->material("public/applynow");
+		$this->load->model('public_model');
+		$data['options']=$this->public_model->getalljobs('title');
+		$this->material("public/applynow",$data);
 	}
 	public function login()
 	{

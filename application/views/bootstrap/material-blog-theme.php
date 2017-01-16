@@ -40,4 +40,4 @@ if(isset($_GET['msg']) && strlen($_GET['msg'])>1 )
 	    </div> 
 	  </div>
 	</div>
-</div>
+</div> 
