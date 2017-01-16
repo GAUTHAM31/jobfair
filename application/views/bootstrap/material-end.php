@@ -23,7 +23,7 @@
         </div>
       </div>
 </footer>
-<div class="btn-floating btn-large waves-effect totop waves-light red fixed" style="position: fixed;right: 2%;bottom: 5%"> <i class="fa fa-chevron-up fa-2x"></i> </div>
+<div class="btn-floating  waves-effect totop waves-light red fixed" style="position: fixed;right: 2%;bottom: 5%"> <i class="fa fa-chevron-up fa-2x"></i> </div>
 </body> 
 <script>
 	function chktotop(){
