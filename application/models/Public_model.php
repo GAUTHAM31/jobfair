@@ -1,4 +1,5 @@
 <?php 
+defined('BASEPATH') OR exit('No direct script access allowed');
 /**
 * 		
 */
@@ -9,6 +10,15 @@ class Public_model extends CI_Model
 	{
 		parent::__construct();
 		$this->load->database();
+	}
+	public function closed()
+	{
+		$q=$this->db->get_where('admin',['id'=>1]);
+		if($q->num_rows()!=1)
+			return true;
+		if($q->result_array()[0]['closed']==1)
+			return true;
+		return false;
 	}
 	function enc($password)
 	{

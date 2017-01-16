@@ -84,3 +84,7 @@ select.browser-default{
 i.fa-small {
 	font-size: 0.9em ;
 }
+
+.collapsible-body{
+	background: #fff;
+} 

@@ -1,4 +1,5 @@
 <?php 
+defined('BASEPATH') OR exit('No direct script access allowed');
 /**
 * 	user login purpose
 */
@@ -14,11 +15,17 @@ class User extends CI_Controller
 			redirect("welcome/logout?msg=login again");
 			die;
 		}
+		$this->load->model('public_model');	
+		if($this->public_model->closed())
+		{
+			show_error('Registration Cloed!', 401,'Sorry !');
+			die;
+		}
 		$this->load->model('user_model');
 		
 		if(!$this->user_model->userexist($this->id))
 		{
-			redirect($this->config->base_url()."accounts/logout?msg=User doesnot exist.Or Blocked Due to Multiple Failed Attempts.","refresh");
+			redirect($this->config->base_url()."welcome/logout?msg=User doesnot exist.Or Blocked Due to Multiple Failed Attempts.","refresh");
 			die;
 		} 
 	}

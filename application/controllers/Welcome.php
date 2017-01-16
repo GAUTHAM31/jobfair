@@ -2,6 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('public_model');	
+		if($this->public_model->closed())
+		{
+			show_error('Registration Cloed!', 401,'Sorry !');
+			die;
+		}
+	}
  	public function material($content=NULL,$data="")
  	{
 		$this->load->view('bootstrap/material-start');
@@ -48,7 +58,6 @@ class Welcome extends CI_Controller {
             	'password'=>$input['password']
 
 	            ];
-            $this->load->model('public_model');	
             if($this->public_model->applynow($personalinfo,$selectedoptions))
             {
             	redirect('welcome/login?msg=Application Submitted .Login to check status. Check Your email . ','refresh');
@@ -56,7 +65,6 @@ class Welcome extends CI_Controller {
             return false;
 
 	}
-		$this->load->model('public_model');
 		$data['options']=$this->public_model->getalljobs('title');
 		$this->material("public/applynow",$data);
 	}
@@ -68,7 +76,6 @@ class Welcome extends CI_Controller {
 		{
 			$input=$this->input->post();
 
-			$this->load->model('public_model');	
 			if($session_data=$this->public_model->login($input['email'],$input['password']))
 			{	
 				$this->load->library('session');
@@ -99,6 +106,8 @@ class Welcome extends CI_Controller {
 		$this->session->sess_destroy();
 
 		$msg=$this->input->get('msg');
-		redirect("welcome/login?msg=".$msg,"refresh"); 
+		$rdir=($this->input->get('rdir'))?$this->input->get('rdir'):'welcome/login';
+		redirect($rdir."?msg=".$msg,"refresh"); 
 	}
+	
 }

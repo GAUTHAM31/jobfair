@@ -68,17 +68,24 @@
      </div>
      <input type="hidden" value="applynow" name="apply">
       <div class="card-action row center-align"> 
-          <button class="btn red darken  waves-effect waves-light" id="apply" >APPLY</button>
+          <button onclick="return confirm_application()" class="btn red darken  waves-effect waves-light" id="apply" >APPLY</button>
       </div>   
     </form>
   </div>
+
+  
   <script>   
- 
+ function confirm_application(){
+   if(confirm("Confirm Action?"))
+   {
+      return true;
+   }
+      return false;
+ }
 var noofclicks=2;
 var maxoptions=<?=$maxoptions?>;
   $(document).ready(function(){
  
-   
         $('#deletemoreoptions').click(function(){
           if(noofclicks>2)
           {
