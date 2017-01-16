@@ -38,7 +38,7 @@ if(isset($userdata))
 	    	<div class="row"> 
 	    		<div class="card-title">
 	    			Personal Information
-	    	 		<a href="<?=base_url()?>user/editinfo" class="chip right pointer edit" style="margin-top: 0.5em"> <i class="fa fa-pencil"></i>  Edit</a>
+	    	 		<!-- <a href="<?=base_url()?>user/editinfo" class="chip right pointer edit" style="margin-top: 0.5em"> <i class="fa fa-pencil"></i>  Edit</a> -->
 	    		</div>
 	    	</div>
 	    	<div class="row">
@@ -58,5 +58,5 @@ if(isset($userdata))
 }
 ?>
 <script>
-	$('.jf-card').css({'max-width':500,'margin':'30px auto'});
+	$('.jf-card').css({'max-width':500,'margin':'0px auto'});
 </script>

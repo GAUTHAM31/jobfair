@@ -35,3 +35,41 @@
       <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
     </li>
   </ul>
+
+<div class="row">
+	<div class="col s12 ">
+		<div class="card ">
+			<div class="card-content">
+				<div class="card-title">
+					Seat Status
+				</div>
+				<table class="centered responsive-table">
+					<thead>
+					  <tr>
+					      <th>Company Name</th>
+					      <th>Max Seats </th> 
+					      <th> Seats Filled </th> 
+					      <th>Seats Available</th> 
+					  </tr>
+					</thead>
+					<tbody>
+				<?php 
+				if( isset($jobs))
+				foreach ($jobs as $key => $value) {
+?>
+						<tr>	
+					                <td><?=$value['title']?></td>
+					                <td><?=$value['maxseats']?></td> 
+					                <td><?=$value['seats']?></td> 
+					                <td><?=$value['maxseats']-$value['seats']?></td> 
+						</tr>
+<?php
+				}
+
+				?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

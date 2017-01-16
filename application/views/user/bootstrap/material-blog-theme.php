@@ -17,15 +17,15 @@ if($this->input->get('msg')!=false)
 	<div class="nav-wrapper">
 	  <a href="<?=base_url()?>" class="brand-logo center">Job Fair</a>
 	  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons fa fa-fw fa-bars "></i></a>
-	  <ul class="right hide-on-med-and-down">
+	  <ul class="right hide-on-med-and-down"> <!-- 
 	    <li><a href="<?=base_url()?>user">Home</a></li> 
-	    <li><a href="<?=base_url()?>user/editinfo">Edit Basic Info</a></li> 
+	    <li><a href="<?=base_url()?>user/editinfo">Edit Basic Info</a></li>  -->
 	    <li><a href="<?=base_url()?>user/printout">Printout</a></li> 
 	    <li><a href="<?=base_url()?>logout">Logout</a></li> 
 	  </ul>
-	  <ul class="side-nav" id="mobile-demo"> 
-	    <li><a href="<?=base_url()?>user">Home</a></li> 
-	    <li><a href="<?=base_url()?>user/editinfo">Edit Basic Info</a></li> 
+	  <ul class="side-nav" id="mobile-demo">  <!-- 
+	    <li><a href="<?=base_url()?>user">Home</a></li>
+	    <li><a href="<?=base_url()?>user/editinfo">Edit Basic Info</a></li>  -->
 	    <li><a href="<?=base_url()?>user/printout">Printout</a></li> 
 	    <li><a href="<?=base_url()?>logout">Logout</a></li>  
 	  </ul>

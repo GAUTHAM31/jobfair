@@ -33,7 +33,7 @@ class Admin extends CI_Controller
 	}
 	public function index()
 	{  
-		$this->material('admin/home');
+		$this->material('admin/home',['jobs'=>$this->admin_model->alljobs()]);
 	}
 	public function closeall()
 	{

@@ -27,13 +27,13 @@ class Welcome extends CI_Controller {
  	}
 
 	 
-	public function instructions()
+	public function index()
 	{
 		$this->load->view('bootstrap/material-start');
 		$this->load->view("public/home");
 		$this->load->view('bootstrap/material-end');
 	} 
-	public function index()
+	public function instructions()
 	{
 		$this->material("public/instructions");
 	} 

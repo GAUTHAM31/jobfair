@@ -35,6 +35,10 @@ class Admin_model extends CI_Model
 	{
 		return $this->db->update('admin',['closed'=>0],['id'=>1]);
 	}
+	public function alljobs()
+	{
+		return $this->db->get('jobs')->result_array();
+	}
 	public function addcompany($data)
 	{
 		return $this->db->insert('jobs',[
