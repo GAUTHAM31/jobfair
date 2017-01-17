@@ -3,7 +3,7 @@
     <span class="card-title">Admin Login</span> 
       <div class="row">
         <div class="input-field  col s12  ">
-          <input id="uid" name="id" type="text" class="validate">
+          <input id="uid" name="uname" type="text" class="validate">
           <label for="uid">Id</label>
         </div>
       </div> 

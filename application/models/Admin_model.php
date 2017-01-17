@@ -19,9 +19,37 @@ class Admin_model extends CI_Model
 			return true;
 		return false;
 	}
-	public function loginadmin()
+	private function preparepassword($uname,$password)
 	{
-		return $this->db->update('admin',['ip'=>$this->input->ip_address(),'date'=>date("Y-m-d")],['id'=>1]);
+
+		if($q=$this->db->get_where('admin',['uname'=>$uname]))
+		{
+			if($q->num_rows()==1)
+			{
+				$salt=$q->result_array()[0]['salt'];
+				return sha1($password.$salt);
+			}
+		}
+		return false;
+	}
+	public function loginadmin($input)
+	{
+		$input['password']=sha1($input['password']);
+		$password=$this->preparepassword($input['uname'],$input['password']);
+		 
+		if($q=$this->db->get_where('admin',[
+				'uname'=>$input['uname'],
+				'password'=>$password
+				]))
+		{
+
+			if($q->num_rows()==1)
+			{
+				return $this->db->update( 'admin',['ip'=>$this->input->ip_address(),'date'=>date("Y-m-d")],['uname'=>$input['uname']] ) ;		
+			}
+
+		} 
+		return false;
 	}
 	public function admin_data()
 	{

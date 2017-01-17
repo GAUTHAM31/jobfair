@@ -6,17 +6,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Adminlogin extends CI_Controller
 { 
 	public function index(){
-		if($id=$this->input->post())
+		if($input=$this->input->post())
 		{
 			$this->load->library('session');
 			$this->load->model('admin_model');
-			if($this->admin_model->loginadmin())
+			
+			if($this->admin_model->loginadmin(['uname'=>$input['uname'] ,'password'=>$input['password'] ])==true)
 			{
 				$this->session->set_userdata('admin',true);  
 				redirect("admin","refresh");  
 				return;
-			}
-			redirect("login","refresh");  
+			} 
+			redirect("adminlogin?msg=Error during login","refresh");  
 			return;
 		}
 		$this->load->view('bootstrap/material-start');

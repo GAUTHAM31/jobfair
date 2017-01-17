@@ -21,7 +21,7 @@ if(isset($_GET['msg']) && strlen($_GET['msg'])>1 )
 	    <li><a href="<?=base_url()?>logout?rdir=adminlogin">Logout</a></li> 
 	  </ul>
 	  <ul class="side-nav" id="mobile-demo"> 
-	    <li><a href="<?=base_url()?>logout">Logout</a></li> 
+	    <li><a href="<?=base_url()?>logout?&rdir=adminlogin">Logout</a></li> 
 	  </ul>
 	</div>
 </nav>
