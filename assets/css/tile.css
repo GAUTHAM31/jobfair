@@ -1,0 +1,38 @@
+.paralex-header{
+    color: #fff;
+    padding: 10% 0;
+    text-align: center; 
+    background: rgba(0,0,0,0.2);
+    height: 100%;
+
+}
+.tile{
+    padding:0;
+    margin:0 ;
+    padding: 0 !important;
+    display: inline-block;
+    background: #ccc;
+    overflow: hidden;
+    position: relative;
+} 
+.tile img{
+        width: 100%;
+        min-height:100%;
+        display: block;
+}
+.tile .content{
+    width: 100%;
+    text-align: center;
+    height:100%;
+    position: absolute;
+    top: 0; 
+    padding-top: 10%;
+    line-height: 30px;
+    transition: 0.4s ease-in-out;
+    background-color: rgba(204, 60, 38, 0.74);
+    color: #fff;
+    opacity: 0;
+}
+.tile:hover .content{
+    opacity: 0.95 ;
+}
